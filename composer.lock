@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a88533ad564976ec078251ca7c0e41e4",
+    "packages": [
+        {
+            "name": "tumi-soft/okami",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tumi-soft/okami.git",
+                "reference": "5bcca26ff46c11f47a95b14d7220e9b81507b84d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tumi-soft/okami/zipball/5bcca26ff46c11f47a95b14d7220e9b81507b84d",
+                "reference": "5bcca26ff46c11f47a95b14d7220e9b81507b84d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Okami\\": "./"
+                }
+            },
+            "scripts": {
+                "start": [
+                    "php -S localhost:8080 -t public"
+                ]
+            },
+            "license": [
+                "apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Michal Tuček",
+                    "email": "michaltk1@gmail.com"
+                }
+            ],
+            "description": "A simple PHP MVC made from scratch for learning purposes using PHP 7.4",
+            "homepage": "https://github.com/tumi-soft/okami",
+            "keywords": [
+                "mvc",
+                "php"
+            ],
+            "support": {
+                "source": "https://github.com/tumi-soft/okami/tree/1.0.0-aplha01",
+                "issues": "https://github.com/tumi-soft/okami/issues"
+            },
+            "time": "2020-12-01T08:33:45+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.4"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}
