@@ -12,11 +12,11 @@ use Okami\Core\Model;
  */
 class RegisterModel extends Model
 {
-    public string $firstName;
-    public string $lastName;
-    public string $email;
-    public string $password;
-    public string $confirmPassword;
+    public string $firstName = '';
+    public string $lastName = '';
+    public string $email = '';
+    public string $password = '';
+    public string $confirmPassword = '';
 
     public function register()
     {
