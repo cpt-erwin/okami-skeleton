@@ -1,3 +1,5 @@
+<?php use Okami\Core\App; ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,6 +40,11 @@
 </nav>
 
 <div class="container">
+    <?php if (App::$app->session->getFlash('success')) : ?>
+        <div class="alert alert-success">
+            <?php echo App::$app->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
     {{content}}
 </div>
 
