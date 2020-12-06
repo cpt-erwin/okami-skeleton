@@ -17,7 +17,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if ($request->isPost()) {
-            return "Handling submitted data...";
+            App::$app->session->setFlash('success', 'Successfully registered!');
+            App::$app->response->redirect('/');
+            exit;
         }
         $this->setLayout('auth');
         return $this->render('login');
