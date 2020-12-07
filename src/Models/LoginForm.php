@@ -24,7 +24,7 @@ class LoginForm extends Model
         ];
     }
 
-    public function labels()
+    public function labels(): array
     {
         return [
             'email' => 'Your email',
