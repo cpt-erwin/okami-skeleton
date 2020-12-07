@@ -30,7 +30,7 @@ class User extends UserModel
 
     public function tableName(): string
     {
-        return 'user';
+        return 'users';
     }
 
     public function primaryKey(): string
