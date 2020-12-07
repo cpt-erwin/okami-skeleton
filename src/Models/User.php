@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Okami\Core\DbModel;
+use Okami\Core\UserModel;
 
 /**
  * Class RegisterModel
@@ -10,7 +10,7 @@ use Okami\Core\DbModel;
  * @author Michal Tuček <michaltk1@gmail.com>
  * @package App\Models
  */
-class User extends DbModel
+class User extends UserModel
 {
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
@@ -70,5 +70,10 @@ class User extends DbModel
     public function attributes(): array
     {
         return ['firstName', 'lastName', 'email', 'status', 'password'];
+    }
+
+    public function getDisplayName(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }
