@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\LoginForm;
 use App\Models\User;
+use Okami\Core\App;
 use Okami\Core\Response;
 use Okami\Core\Controller;
 use Okami\Core\Request;
