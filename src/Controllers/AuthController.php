@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\LoginForm;
 use App\Models\User;
+use http\Env\Response;
 use Okami\Core\Controller;
 use Okami\Core\Request;
 
@@ -14,25 +16,32 @@ use Okami\Core\Request;
  */
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $request, Response $response)
     {
+        $loginForm = new LoginForm();
         if ($request->isPost()) {
-            App::$app->session->setFlash('success', 'Successfully registered!');
-            App::$app->response->redirect('/');
-            exit;
+            $loginForm->loadData($request->getBody());
+            if ($loginForm->validate() && $loginForm->login()) {
+                $response->redirect('/');
+                exit;
+            }
         }
         $this->setLayout('auth');
-        return $this->render('login');
+        return $this->render('login', [
+            'model' => $loginForm
+        ]);
     }
 
-    public function register(Request $request)
+    public function register(Request $request, Response $response)
     {
         $user = new User();
         if ($request->isPost()) {
             $user->loadData($request->getBody());
 
             if ($user->validate() && $user->save()) {
-                return 'Success';
+                App::$app->session->setFlash('success', 'Successfully registered!');
+                $response->redirect('/');
+                exit;
             }
             return $this->render('register', [
                 'model' => $user
