@@ -59,4 +59,9 @@ class AuthController extends Controller
         App::$app->logout();
         $response->redirect('/');
     }
+
+    public function profile(Request $request, Response $response)
+    {
+        return $this->render('profile');
+    }
 }
