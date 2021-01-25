@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'debug' => true,
     'userClass' => \App\Models\User::class,
     'db' => [
         'dsn' => $_ENV['DB_DSN'],
