@@ -50,7 +50,12 @@ class Router
         }
         if (is_array($callback)) {
             App::$app->setController(new $callback[0]()); // create instance of passed controller
+            App::$app->controller->action = $callback[1];
             $callback[0] = App::$app->getController();
+
+            foreach (App::$app->controller->getMiddlewares() as $middleware) {
+                $middleware->execute();
+            }
         }
         return call_user_func($callback, $this->request, $this->response);
     }

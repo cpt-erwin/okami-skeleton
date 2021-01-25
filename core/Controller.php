@@ -13,11 +13,13 @@ use Okami\Core\Middlewares\Middleware;
 class Controller
 {
     private string $layout = 'main';
+    public string $action = '';
+
 
     /**
      * @var Middleware[]
      */
-    public array $middlewares;
+    protected array $middlewares = [];
 
     public function render(string $view, array $params = [])
     {
@@ -37,5 +39,13 @@ class Controller
     public function registerMiddleware(Middleware $middleware): void
     {
         $this->middlewares[] = $middleware;
+    }
+
+    /**
+     * @return Middleware[]
+     */
+    public function getMiddlewares(): array
+    {
+        return $this->middlewares;
     }
 }
