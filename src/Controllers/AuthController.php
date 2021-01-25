@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\LoginForm;
 use App\Models\User;
 use Okami\Core\App;
+use Okami\Core\Middlewares\AuthMiddleware;
 use Okami\Core\Response;
 use Okami\Core\Controller;
 use Okami\Core\Request;
@@ -17,6 +18,11 @@ use Okami\Core\Request;
  */
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->registerMiddleware(new AuthMiddleware(['profile']));
+    }
+
     public function login(Request $request, Response $response)
     {
         $loginForm = new LoginForm();
