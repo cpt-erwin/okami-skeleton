@@ -47,7 +47,7 @@ class Router
             throw new NotFoundException();
         }
         if (is_string($callback)) {
-            return $this->renderView($callback);
+            return App::$app->view->renderView($callback);
         }
         if (is_array($callback)) {
             App::$app->setController(new $callback[0]()); // create instance of passed controller
@@ -59,41 +59,5 @@ class Router
             }
         }
         return call_user_func($callback, $this->request, $this->response);
-    }
-
-    public function renderView(string $view, array $params = [])
-    {
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view, $params);
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
-
-    public function renderContent(string $viewContent)
-    {
-        $layoutContent = $this->layoutContent();
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
-
-    protected function layoutContent()
-    {
-        $layout = App::$app->layout;
-        if (App::$app->getController()) {
-            $layout = App::$app->getController()->getLayout();
-        }
-        ob_start(); // This will stop everything from being displays but still buffers it
-        /** @noinspection PhpIncludeInspection */
-        include_once App::$ROOT_DIR . "/views/layouts/$layout.phtml";
-        return ob_get_clean(); // Returns the content of the "display" buffer
-    }
-
-    protected function renderOnlyView(string $view, array $params)
-    {
-        foreach ($params as $param => $value) {
-            $$param = $value; // If $param can be used as a variable name, then created one and fill it with the value
-        }
-        ob_start(); // This will stop everything from being displays but still buffers it
-        /** @noinspection PhpIncludeInspection */
-        include_once App::$ROOT_DIR . "/views/$view.phtml";
-        return ob_get_clean(); // Returns the content of the "display" buffer
     }
 }
