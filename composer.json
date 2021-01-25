@@ -16,16 +16,10 @@
   ],
   "prefer-stable": false,
   "minimum-stability": "dev",
-  "repositories": [
-    {
-      "name": "tumi-soft/okami",
-      "type": "vcs",
-      "url": "https://github.com/tumi-soft/okami"
-    }
-  ],
   "require": {
     "php": ">=7.4",
-    "tumi-soft/okami": "*"
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.2"
   },
   "require-dev": {},
   "config": {
@@ -33,7 +27,8 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "App\\": "src/",
+      "Okami\\": "./"
     }
   },
   "autoload-dev": {},
