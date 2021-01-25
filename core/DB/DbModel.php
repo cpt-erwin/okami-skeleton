@@ -1,6 +1,9 @@
 <?php
 
-namespace Okami\Core;
+namespace Okami\Core\DB;
+
+use Okami\Core\App;
+use Okami\Core\Model;
 
 /**
  * Class DbModel

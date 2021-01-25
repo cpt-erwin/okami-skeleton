@@ -3,6 +3,7 @@
 namespace Okami\Core;
 
 use Exception;
+use Okami\Core\DB\Database;
 
 /**
  * Class App
@@ -22,10 +23,10 @@ class App
     public Response $response;
     public Session $session;
     public Database $db;
-    public static App $app;
-    public ?Controller $controller = null;
     public View $view;
     public ?UserModel $user = null;
+    public static App $app;
+    public ?Controller $controller = null;
 
     public function __construct(string $rootPath, array $config)
     {
