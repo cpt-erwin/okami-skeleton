@@ -1,35 +1,24 @@
 <?php
 
-use App\Controllers\AuthController;
-use App\Controllers\SiteController;
 use Okami\Core\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Initialize the superglobal variable $_ENV
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
-$config = [
-    'userClass' => \App\Models\User::class,
-    'db' => [
-        'dsn' => $_ENV['DB_DSN'],
-        'user' => $_ENV['DB_USER'],
-        'password' => $_ENV['DB_PASSWORD'],
-    ]
-];
-
+// Configure the app
+$config = require __DIR__ . '/../src/config.php';
 $app = new App(dirname(__DIR__), $config);
 
-$app->router->get('/', [SiteController::class, 'home']);
-$app->router->get('/contact', [SiteController::class, 'contact']);
-$app->router->post('/contact', [SiteController::class, 'contact']);
+// Register events
+$events = require __DIR__ . '/../src/events.php';
+$events($app);
 
-$app->router->get('/login', [AuthController::class, 'login']);
-$app->router->post('/login', [AuthController::class, 'login']);
-$app->router->get('/register', [AuthController::class, 'register']);
-$app->router->post('/register', [AuthController::class, 'register']);
-$app->router->get('/logout', [AuthController::class, 'logout']);
+// Register routes
+$routes = require __DIR__ . '/../src/routes.php';
+$routes($app->router);
 
-$app->router->get('/profile', [AuthController::class, 'profile']);
-
+// Stat the application
 $app->run();
