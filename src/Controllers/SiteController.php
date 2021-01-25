@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\ContactForm;
+use Okami\Core\App;
 use Okami\Core\Controller;
 use Okami\Core\Request;
+use Okami\Core\Response;
 
 /**
  * Class SiteController
@@ -21,17 +24,18 @@ class SiteController extends Controller
         return $this->render('home', $params);
     }
 
-    public function contact()
+    public function contact(Request $request, Response $response)
     {
-        return $this->render('contact');
-    }
-
-    public function handleContact(Request $request)
-    {
-         $body = $request->getBody();
-
-         // TODO: Some $body validation logic...
-
-         return "Handling submitted data...";
+        $contact = new ContactForm();
+        if($request->isPost()) {
+            $contact->loadData($request->getBody());
+            if($contact->validate() && $contact->sent()) {
+                App::$app->session->setFlash('success', 'Thanks for contacting us!');
+                $response->redirect('/contact');
+            }
+        }
+        return $this->render('contact', [
+            'model' => $contact
+        ]);
     }
 }
