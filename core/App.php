@@ -78,7 +78,7 @@ class App
         $this->session->remove('user');
     }
 
-    public function isGuest(): bool
+    public static function isGuest(): bool
     {
         return !self::$app->user;
     }
