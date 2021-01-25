@@ -2,6 +2,8 @@
 
 namespace Okami\Core;
 
+use Exception;
+
 /**
  * Class App
  *
@@ -44,13 +46,19 @@ class App
     }
 
     public function run() {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        } catch (Exception $e) {
+            echo $this->router->renderView('_error', [
+                'exception' => $e
+            ]);
+        }
     }
 
     /**
-     * @return Controller
+     * @return ?Controller
      */
-    public function getController(): Controller
+    public function getController(): ?Controller
     {
         return $this->controller;
     }

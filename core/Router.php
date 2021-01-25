@@ -2,6 +2,8 @@
 
 namespace Okami\Core;
 
+use Okami\Core\Exceptions\NotFoundException;
+
 /**
  * Class Router
  *
@@ -43,7 +45,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false) {
             $this->response->setStatusCode(404);
-            return $this->renderView("_404");
+            throw new NotFoundException();
         }
         if (is_string($callback)) {
             return $this->renderView($callback);
