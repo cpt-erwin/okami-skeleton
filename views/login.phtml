@@ -2,12 +2,12 @@
 /** @var $model \App\Models\User */
 ?>
 
-<h1>Login</h1>
+<h1 class="title">Login</h1>
 
 <?php $form = \Okami\Core\Form\Form::begin('', 'post') ?>
-
     <?php echo $form->field($model, 'email')->emailField() ?>
     <?php echo $form->field($model, 'password')->passwordField() ?>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="control">
+        <button class="button is-link">Submit</button>
+    </div>
 <?php \Okami\Core\Form\Form::end('', 'post') ?>
