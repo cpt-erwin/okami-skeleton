@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227cc8a6c7b7446de0315499837e6884",
+    "content-hash": "c5efdb97286529d09354133ca9171cc4",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -362,6 +362,51 @@
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
+            "name": "tumi-soft/okami",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tumi-soft/okami.git",
+                "reference": "01e6522fca22adf71721c2d96765a3c1c0697c4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tumi-soft/okami/zipball/01e6522fca22adf71721c2d96765a3c1c0697c4e",
+                "reference": "01e6522fca22adf71721c2d96765a3c1c0697c4e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=7.4",
+                "vlucas/phpdotenv": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Okami\\Core\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Michal Tuček",
+                    "email": "michaltk1@gmail.com"
+                }
+            ],
+            "description": "A simple PHP MVC made from scratch for learning purposes using PHP 7.4",
+            "homepage": "https://github.com/tumi-soft/okami",
+            "keywords": [
+                "OOP",
+                "mvc",
+                "php",
+                "router"
+            ],
+            "time": "2021-01-25T14:25:21+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "dev-master",
             "source": {
@@ -441,7 +486,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tumi-soft/okami": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

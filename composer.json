@@ -19,7 +19,8 @@
   "require": {
     "php": ">=7.4",
     "ext-pdo": "*",
-    "vlucas/phpdotenv": "^5.2"
+    "vlucas/phpdotenv": "^5.2",
+    "tumi-soft/okami": "dev-master"
   },
   "require-dev": {},
   "config": {
@@ -27,8 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/",
-      "Okami\\": "./"
+      "App\\": "src/"
     }
   },
   "autoload-dev": {},
