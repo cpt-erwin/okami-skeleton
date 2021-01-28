@@ -3,7 +3,7 @@
 use App\Controllers\AuthController;
 use App\Controllers\SiteController;
 
-return function (\Okami\Core\Router $router)
+return function (\Okami\Core\Routing\Router $router)
 {
     $router->get('/', [SiteController::class, 'home']);
 
@@ -18,5 +18,5 @@ return function (\Okami\Core\Router $router)
 
     $router->get('/logout', [AuthController::class, 'logout']);
 
-    $router->get('/profile', [AuthController::class, 'profile']);
+    $router->get('/profile', [AuthController::class, 'profile'])->withMiddleware(\Okami\Core\Middlewares\AuthMiddleware::class);
 };

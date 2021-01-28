@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Result-Type.git",
-                "reference": "74acfe25f0019fb8af8b5b1eda0681e8e253fee2"
+                "reference": "cce288e91826d6d33d76b57f1ad4bdc3f3a8c1d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/74acfe25f0019fb8af8b5b1eda0681e8e253fee2",
-                "reference": "74acfe25f0019fb8af8b5b1eda0681e8e253fee2",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/cce288e91826d6d33d76b57f1ad4bdc3f3a8c1d6",
+                "reference": "cce288e91826d6d33d76b57f1ad4bdc3f3a8c1d6",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-28T23:32:07+00:00"
+            "time": "2021-01-25T20:12:13+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -481,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tumi-soft/okami.git",
-                "reference": "6989cbd963ab41920c8f014150744d3bc6227a96"
+                "reference": "e3fd26a9938705d2db5b56d17677a569f998566f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tumi-soft/okami/zipball/6989cbd963ab41920c8f014150744d3bc6227a96",
-                "reference": "6989cbd963ab41920c8f014150744d3bc6227a96",
+                "url": "https://api.github.com/repos/tumi-soft/okami/zipball/e3fd26a9938705d2db5b56d17677a569f998566f",
+                "reference": "e3fd26a9938705d2db5b56d17677a569f998566f",
                 "shasum": ""
             },
             "require": {
@@ -519,7 +519,7 @@
                 "php",
                 "router"
             ],
-            "time": "2021-01-25T16:01:04+00:00"
+            "time": "2021-01-28T12:58:19+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
